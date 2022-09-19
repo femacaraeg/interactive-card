@@ -1,11 +1,17 @@
 import "./App.css";
 
+import Card from "./components/Card/Card";
+import mobileBg from "./assets/bg-main-mobile.png";
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>MY NAME IS</p>
-      </header>
+      <div className="fill">
+        <img src={mobileBg} className="mobileBg" alt="mobile background" />
+        <Card />
+      </div>
+
+      <div></div>
     </div>
   );
 }
