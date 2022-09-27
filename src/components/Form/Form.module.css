@@ -1,0 +1,39 @@
+.formBox {
+  width: 100%;
+  /* padding: 1rem; */
+}
+
+.formBox label {
+  display: block;
+  text-align: left;
+  font-size: 18px;
+  color: var(--very-dark-violet);
+  margin: 0.75rem 0;
+}
+
+.formBox input {
+  display: block;
+  width: 100%;
+  margin: 0.25vw 0;
+  /* padding: 0.5rem 0.8rem 0.5rem 0.8rem; */
+  /* margin: 0.9vw 0; */
+  padding: 0.5rem 0.8rem;
+  border: 1px solid var(--dark-grayish-violet);
+  border-radius: 5px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.date {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.date label {
+  flex: 1;
+}
+
+.flexDiv {
+  display: flex;
+}

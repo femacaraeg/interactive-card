@@ -1,17 +1,21 @@
-import "./App.css";
+import './App.css';
 
-import Card from "./components/Card/Card";
-import mobileBg from "./assets/bg-main-mobile.png";
+import Card from './components/Card/Card';
+import Form from './components/Form';
+import mobileBg from './assets/bg-main-mobile.png';
 
 function App() {
   return (
-    <div className="App">
-      <div className="fill">
-        <img src={mobileBg} className="mobileBg" alt="mobile background" />
+    <div className='App'>
+      <div className='fill'>
+        <img src={mobileBg} className='mobileBg' alt='mobile background' />
+        <div className='card-back' />
         <Card />
       </div>
 
-      <div></div>
+      <div>
+        <Form />
+      </div>
     </div>
   );
 }
