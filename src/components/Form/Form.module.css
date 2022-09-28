@@ -3,6 +3,10 @@
   /* padding: 1rem; */
 }
 
+.formBox form {
+  padding: 1rem;
+}
+
 .formBox label {
   display: block;
   text-align: left;
@@ -14,20 +18,24 @@
 .formBox input {
   display: block;
   width: 100%;
-  margin: 0.25vw 0;
-  /* padding: 0.5rem 0.8rem 0.5rem 0.8rem; */
-  /* margin: 0.9vw 0; */
-  padding: 0.5rem 0.8rem;
-  border: 1px solid var(--dark-grayish-violet);
+  margin: 1.35vw 0;
+  padding: 0.8rem;
+  border: 1px solid var(--light-grayish-violet);
   border-radius: 5px;
   font-size: 18px;
   box-sizing: border-box;
+}
+
+.formBox input:focus {
+  outline: none !important;
+  border: 2px solid var(--dark-grayish-violet);
 }
 
 .date {
   display: flex;
   flex-direction: row;
   width: 100%;
+  gap: 2rem;
 }
 
 .date label {
@@ -36,4 +44,16 @@
 
 .flexDiv {
   display: flex;
+  gap: 1rem;
+}
+
+.confirmBtn {
+  width: 100%;
+  background-color: var(--very-dark-violet);
+  color: var(--white);
+  border-radius: 5px;
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 0.8rem;
+  border: 0;
+  font-size: 18px;
 }

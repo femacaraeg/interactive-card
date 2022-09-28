@@ -31,7 +31,9 @@ function Form() {
             <input type='number' placeholder='e.g. 123' name='cvc' />
           </label>
         </div>
-        <button type='submit'>Confirm</button>
+        <button type='submit' className={styles.confirmBtn}>
+          Confirm
+        </button>
       </form>
     </div>
   );

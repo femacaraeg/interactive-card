@@ -16,3 +16,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+::placeholder {
+  color: var(--light-grayish-violet);
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+}
