@@ -5,11 +5,11 @@ import * as Yup from 'yup';
 import styles from './Form.module.css';
 
 const CardSchema = Yup.object().shape({
-  name: Yup.string().required('Required'),
-  number: Yup.number('Wrong format, numbers only').required(),
-  month: Yup.number().required(`Can't be blank`),
-  year: Yup.number().required(`Can't be blank`),
-  cvc: Yup.number().required(`Can't be blank`),
+  name: Yup.string().required(`Can't be blank`),
+  number: Yup.string().max(16).required(`Can't be blank`),
+  month: Yup.string().min(2).max(2).required(`Can't be blank`),
+  year: Yup.string().min(2).max(2).required(`Can't be blank`),
+  cvc: Yup.string().min(3).max(3).required(`Can't be blank`),
 });
 
 function Form() {
@@ -27,7 +27,9 @@ function Form() {
           <FormikForm>
             <label>CARDHOLDER NAME</label>
             <Field type='text' name='name' placeholder='e.g. Jane Appleseed' />
-            {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            {errors.name && touched.name ? (
+              <p className={styles.error}>{errors.name}</p>
+            ) : null}
             <label>
               CARD NUMBER
               <Field
@@ -37,7 +39,7 @@ function Form() {
               />
             </label>
             {errors.number && touched.number ? (
-              <div>{errors.number}</div>
+              <p className={styles.error}>{errors.number}</p>
             ) : null}
 
             <div className={styles.date}>
@@ -47,13 +49,13 @@ function Form() {
                   <div>
                     <Field type='number' placeholder='MM' name='month' />
                     {errors.month && touched.month ? (
-                      <div>{errors.month}</div>
+                      <p className={styles.error}>{errors.month}</p>
                     ) : null}
                   </div>
                   <div>
                     <Field type='number' placeholder='YY' name='year' />
                     {errors.year && touched.year ? (
-                      <div>{errors.year}</div>
+                      <p className={styles.error}>{errors.year}</p>
                     ) : null}
                   </div>
                 </div>
@@ -62,7 +64,9 @@ function Form() {
                 CVC
                 <div>
                   <Field type='number' placeholder='e.g. 123' name='cvc' />
-                  {errors.cvc && touched.cvc ? <div>{errors.cvc}</div> : null}
+                  {errors.cvc && touched.cvc ? (
+                    <p className={styles.error}>{errors.cvc}</p>
+                  ) : null}
                 </div>
               </label>
             </div>
