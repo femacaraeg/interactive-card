@@ -33,7 +33,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 33.33%;
+  height: 90.33%;
 }
 
 .fill img {
@@ -43,19 +43,30 @@
 }
 
 .card-back {
-  min-width: 300px;
-  min-height: 164px;
+  min-width: 250px;
+  min-height: 136px;
+  background-size: 250px;
   border-radius: 8px;
   background-image: url('./assets/bg-card-back.png');
-  background-size: 300px;
+  background-size: 250px;
   position: absolute;
   right: 1rem;
+  /* top: 2rem; */
+  bottom: 5rem;
+}
+
+.divContainer {
+  position: relative;
+  height: calc(100vh - 69vh);
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .card-back {
-    right: 2rem;
-    top: 4.5rem;
+    right: 1rem;
+    min-width: 450px;
+    min-height: 224px;
+    background-size: 450px;
+    bottom: 9.5rem;
   }
 }
 

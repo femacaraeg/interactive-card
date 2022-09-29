@@ -2,27 +2,19 @@
   position: absolute;
   display: flex;
   border-radius: 8px;
-  min-width: 300px;
-  min-height: 164px;
-  background-image: url("../../assets/bg-card-front.png");
-  background-size: 300px;
-  top: 7rem;
+  min-width: 250px;
+  min-height: 136px;
+  background-size: 250px;
+  background-image: url('../../assets/bg-card-front.png');
   left: 1rem;
+  bottom: 0.25rem;
 }
 
-/* @media (min-width: 481px) and (max-width: 767px) {
-  .card {
-    min-height: 447px;
-    min-height: 245px;
-    background-size: 447px;
-  }
-} */
 /* Tablet View */
-
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .card {
-    min-width: 500px;
-    min-height: 274px;
-    background-size: 500px;
+    min-width: 450px;
+    min-height: 224px;
+    background-size: 450px;
   }
 }
