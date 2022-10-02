@@ -33,7 +33,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 90.33%;
+  height: 85%;
 }
 
 .fill img {
@@ -43,21 +43,40 @@
 }
 
 .card-back {
-  min-width: 250px;
-  min-height: 136px;
-  background-size: 250px;
-  border-radius: 8px;
+  min-width: 305px;
+  min-height: 167px;
+  background-size: cover;
+  /* border-radius: 8px; */
   background-image: url('./assets/bg-card-back.png');
-  background-size: 250px;
   position: absolute;
   right: 1rem;
-  /* top: 2rem; */
-  bottom: 5rem;
+  bottom: 6rem;
 }
 
 .divContainer {
   position: relative;
-  height: calc(100vh - 69vh);
+  height: calc(100vh - 62vh);
+}
+
+/** 
+  Breakpoints:
+  ------------
+  sm: min-width: 640px; //small device
+  md: min-width: 768px; // medium device
+  lg: min-width: 1024px; // large device
+  xl: min-width: 1280px; // extra large device
+  2xl: min-width: 1536px; // 2 x extra large device
+**/
+
+/* Ipads, Tablets */
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+  .card-back {
+    right: 1rem;
+    min-width: 447px;
+    min-height: 245px;
+    background-size: cover;
+    bottom: 6rem;
+  }
 }
 
 @media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -65,7 +84,7 @@
     right: 1rem;
     min-width: 450px;
     min-height: 224px;
-    background-size: 450px;
+    background-size: cover;
     bottom: 9.5rem;
   }
 }

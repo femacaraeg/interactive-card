@@ -1,13 +1,22 @@
 .card {
   position: absolute;
   display: flex;
-  border-radius: 8px;
-  min-width: 250px;
-  min-height: 136px;
-  background-size: 250px;
+  min-width: 305px;
+  min-height: 167px;
+  background-size: cover;
   background-image: url('../../assets/bg-card-front.png');
   left: 1rem;
-  bottom: 0.25rem;
+  bottom: 0.1rem;
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) {
+  .card {
+    min-width: 447px;
+    min-height: 245px;
+    background-size: cover;
+    bottom: -1.95rem;
+    /* bottom: 6rem; */
+  }
 }
 
 /* Tablet View */
@@ -15,6 +24,16 @@
   .card {
     min-width: 450px;
     min-height: 224px;
-    background-size: 450px;
+    background-size: cover;
   }
 }
+
+/** 
+  Breakpoints:
+  ------------
+  sm: min-width: 640px; //small device
+  md: min-width: 768px; // medium device
+  lg: min-width: 1024px; // large device
+  xl: min-width: 1280px; // extra large device
+  2xl: min-width: 1536px; // 2 x extra large device
+**/

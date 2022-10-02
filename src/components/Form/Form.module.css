@@ -10,10 +10,10 @@
 .formBox label {
   display: block;
   text-align: left;
-  font-size: 15px;
+  font-size: 12px;
   color: var(--very-dark-violet);
   margin: 0.75rem 0;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .formBox input {
@@ -36,7 +36,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .date label {
