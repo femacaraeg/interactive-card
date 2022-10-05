@@ -1,22 +1,26 @@
+import React, { useState } from 'react';
+
+import Form from './components/Form';
+import Header from './components/Header';
+
 import './App.css';
 
-import Card from './components/Card/Card';
-import Form from './components/Form';
-import mobileBg from './assets/bg-main-mobile.png';
-
 function App() {
+  const [name, setName] = useState('Jane Appleseed');
+  const [cardNumber, setCardNumber] = useState('');
+
+  const handleFormChange = (props) => {
+    setName(props.name);
+    setCardNumber(props.number);
+  };
+
+  console.log(name);
+
   return (
     <div className='App'>
-      <div className='divContainer'>
-        <div className='fill'>
-          <img src={mobileBg} className='mobileBg' alt='mobile background' />
-          <div className='card-back' />
-          <Card />
-        </div>
-      </div>
-
+      <Header name={name} number={cardNumber} />
       <div>
-        <Form />
+        <Form onFormChange={handleFormChange} />
       </div>
     </div>
   );

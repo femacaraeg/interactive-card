@@ -1,0 +1,49 @@
+/** 
+  Breakpoints:
+  ------------
+  sm: min-width: 640px; //small device
+  md: min-width: 768px; // medium device
+  lg: min-width: 1024px; // large device
+  xl: min-width: 1280px; // extra large device
+  2xl: min-width: 1536px; // 2 x extra large device
+**/
+
+.container {
+  position: relative;
+  height: calc(100vh - 62vh);
+}
+
+.fill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 85%;
+}
+
+.fill img {
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.cardBack {
+  min-width: 305px;
+  min-height: 167px;
+  background-size: cover;
+  background-image: url('../../assets/bg-card-back.png');
+  position: absolute;
+  right: 1rem;
+  bottom: 6rem;
+}
+
+.cardFront {
+  position: absolute;
+  display: flex;
+  min-width: 305px;
+  min-height: 167px;
+  background-size: cover;
+  background-image: url('../../assets/bg-card-front.png');
+  left: 1rem;
+  bottom: 0.1rem;
+}
