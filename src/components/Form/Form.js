@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 
+import valid from 'card-validator';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -7,10 +8,30 @@ import styles from './Form.module.css';
 
 const CardSchema = Yup.object({
   name: Yup.string().required(`Can't be blank`),
-  number: Yup.string().max(16).required(`Can't be blank`),
-  month: Yup.string().min(2).max(2).required(`Can't be blank`),
-  year: Yup.string().min(2).max(2).required(`Can't be blank`),
-  cvc: Yup.string().min(3).max(3).required(`Can't be blank`),
+  number: Yup.string()
+    .test(
+      'test-number',
+      'Credit Card number is invalid',
+      (value) => valid.number(value).isValid
+    )
+    .required(`Can't be blank`),
+  month: Yup.string()
+    .test(
+      'test-month',
+      'Month is Invalid',
+      (value) => valid.expirationMonth(value).isValid
+    )
+    .required(`Can't be blank`),
+  year: Yup.string()
+    .test(
+      'test-year',
+      'Year is invalid',
+      (value) => valid.expirationYear(value).isValid
+    )
+    .required(`Can't be blank`),
+  cvc: Yup.string()
+    .test('test-cvv', 'css is invalid', (value) => valid.cvv(value).isValid)
+    .required(`Can't be blank`),
 });
 
 function Form(props) {
