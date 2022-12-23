@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import valid from 'card-validator';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import successIcon from '../../assets/icon-complete.svg';
 
 import styles from './Form.module.css';
 
@@ -37,12 +38,16 @@ const CardSchema = Yup.object({
 function Form(props) {
   const initialValues = { name: '', number: '', month: '', year: '', cvc: '' };
 
+  const [completeState, setCompleteState] = useState(false);
+
   const formik = useFormik({
     initialValues: initialValues,
     enableReinitialize: true,
     onSubmit: async (values) => {
       await new Promise((r) => setTimeout(r, 500));
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
+      setCompleteState(true);
+      // show success submit
     },
     validationSchema: CardSchema,
   });
@@ -57,84 +62,97 @@ function Form(props) {
 
   return (
     <div className={styles.formBox}>
-      <form onSubmit={formik.handleSubmit}>
-        <label>CARDHOLDER NAME</label>
-        <input
-          type='text'
-          name='name'
-          placeholder='e.g. Jane Appleseed'
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          onBlur={formik.handleBlur}
-        />
-        {formik.errors.name && formik.touched.name ? (
-          <p className={styles.error}>{formik.errors.name}</p>
-        ) : null}
-        <label>
-          CARD NUMBER
+      {completeState ? (
+        <div>
+          <img src={successIcon} alt='success' />
+          <h1 className={styles.successHeading}>THANK YOU!</h1>
+          <h3 className={styles.successDescription}>
+            We've added your card details
+          </h3>
+          <button type='button' className={styles.confirmBtn}>
+            Continue
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={formik.handleSubmit}>
+          <label>CARDHOLDER NAME</label>
           <input
             type='text'
-            name='number'
-            placeholder='e.g. 1234 5678 9123 0000'
+            name='name'
+            placeholder='e.g. Jane Appleseed'
             onChange={formik.handleChange}
-            value={formik.values.number}
+            value={formik.values.name}
             onBlur={formik.handleBlur}
           />
-        </label>
-        {formik.errors.number && formik.touched.number ? (
-          <p className={styles.error}>{formik.errors.number}</p>
-        ) : null}
+          {formik.errors.name && formik.touched.name ? (
+            <p className={styles.error}>{formik.errors.name}</p>
+          ) : null}
+          <label>
+            CARD NUMBER
+            <input
+              type='text'
+              name='number'
+              placeholder='e.g. 1234 5678 9123 0000'
+              onChange={formik.handleChange}
+              value={formik.values.number}
+              onBlur={formik.handleBlur}
+            />
+          </label>
+          {formik.errors.number && formik.touched.number ? (
+            <p className={styles.error}>{formik.errors.number}</p>
+          ) : null}
 
-        <div className={styles.date}>
-          <label>
-            EXP. DATE (MM/YY)
-            <div className={styles.flexDiv}>
+          <div className={styles.date}>
+            <label>
+              EXP. DATE (MM/YY)
+              <div className={styles.flexDiv}>
+                <div>
+                  <input
+                    type='number'
+                    placeholder='MM'
+                    name='month'
+                    onChange={formik.handleChange}
+                    value={formik.values.month}
+                  />
+                  {formik.errors.month && touched.month ? (
+                    <p className={styles.error}>{errors.month}</p>
+                  ) : null}
+                </div>
+                <div>
+                  <input
+                    type='number'
+                    placeholder='YY'
+                    name='year'
+                    onChange={formik.handleChange}
+                    value={formik.values.year}
+                  />
+                  {errors.year && touched.year ? (
+                    <p className={styles.error}>{errors.year}</p>
+                  ) : null}
+                </div>
+              </div>
+            </label>
+            <label>
+              CVC
               <div>
                 <input
                   type='number'
-                  placeholder='MM'
-                  name='month'
+                  placeholder='e.g. 123'
+                  name='cvc'
                   onChange={formik.handleChange}
-                  value={formik.values.month}
+                  value={formik.values.cvc}
                 />
-                {formik.errors.month && touched.month ? (
-                  <p className={styles.error}>{errors.month}</p>
+                {errors.cvc && touched.cvc ? (
+                  <p className={styles.error}>{errors.cvc}</p>
                 ) : null}
               </div>
-              <div>
-                <input
-                  type='number'
-                  placeholder='YY'
-                  name='year'
-                  onChange={formik.handleChange}
-                  value={formik.values.year}
-                />
-                {errors.year && touched.year ? (
-                  <p className={styles.error}>{errors.year}</p>
-                ) : null}
-              </div>
-            </div>
-          </label>
-          <label>
-            CVC
-            <div>
-              <input
-                type='number'
-                placeholder='e.g. 123'
-                name='cvc'
-                onChange={formik.handleChange}
-                value={formik.values.cvc}
-              />
-              {errors.cvc && touched.cvc ? (
-                <p className={styles.error}>{errors.cvc}</p>
-              ) : null}
-            </div>
-          </label>
-        </div>
-        <button type='submit' className={styles.confirmBtn}>
-          Confirm
-        </button>
-      </form>
+            </label>
+          </div>
+          <button type='submit' className={styles.confirmBtn}>
+            Confirm
+          </button>
+        </form>
+      )}
     </div>
   );
 }
