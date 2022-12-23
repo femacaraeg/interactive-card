@@ -5,6 +5,7 @@
   --very-dark-violet: hsl(278, 68%, 11%);
   --red: hsl(0, 100%, 66%);
   --linear-gradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --violet: #4f3c74;
 }
 
 body {

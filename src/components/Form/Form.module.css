@@ -39,7 +39,7 @@
 
 .formBox input:focus {
   outline: none !important;
-  border: 2px solid var(--dark-grayish-violet);
+  border: 2px solid var(--violet);
 }
 
 .date {
