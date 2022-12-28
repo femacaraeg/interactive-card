@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   const [name, setName] = useState('Jane Appleseed');
-  const [cardNumber, setCardNumber] = useState('0000');
+  const [cardNumber, setCardNumber] = useState('0000 0000 000 000');
   const [expMonth, setExpMonth] = useState('00');
   const [expYear, setExpYear] = useState('00');
 
@@ -17,8 +17,6 @@ function App() {
     setExpMonth(props.month);
     setExpYear(props.year);
   };
-
-  console.log(name);
 
   return (
     <div className='App'>
