@@ -130,3 +130,13 @@
     height: 223px;
   }
 }
+
+.frontCardContainer {
+  padding: 1rem;
+  width: 100%;
+}
+
+.lowerLine {
+  display: flex;
+  justify-content: space-between;
+}

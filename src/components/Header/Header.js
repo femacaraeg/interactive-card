@@ -11,9 +11,9 @@ function Header(props) {
       <div className={styles.cardContainer}>
         <div className={styles.innerCardContainer}>
           <div className={styles.cardBack} />
+          {/* Credit Card - Front */}
           <div className={styles.cardFront}>
-            <div>
-              fy x<p>{name ? name : 'Jane Appleseed'}</p>
+            <div className={styles.frontCardContainer}>
               <div className={styles.cardNumber}>
                 {number ? number : '0000 0000 000 000'}
               </div>
@@ -22,8 +22,11 @@ function Header(props) {
                   return <p key={index}>{val ? val : '0'}</p>;
                 })}
               </div>
-              <div>
-                <p>{expYear ? expYear : '00'}</p>
+              <div className={styles.lowerLine}>
+                <p>{name ? name.toUpperCase() : 'JANE APPLESEED'}</p>
+                <p>{`${expMonth ? expMonth : '00'}/${
+                  expYear ? expYear : '00'
+                }`}</p>
               </div>
             </div>
           </div>
