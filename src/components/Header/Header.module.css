@@ -11,7 +11,7 @@
 .container {
   position: relative;
   height: calc(100vh - 62vh);
-  background-image: url('/public/assets/bg-main-mobile.png');
+  background-image: url('../../assets/bg-main-mobile.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
