@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/static/js/runtime~main.fad66d1f.js"
   },
   {
-    "revision": "33d6bbef0946f7071752c239b14d4a67",
-    "url": "/static/media/bg-card-front.33d6bbef.png"
-  },
-  {
     "revision": "1a41a92ca7b04ab1362f1b2f6bb2a83a",
     "url": "/static/media/bg-card-back.1a41a92c.png"
+  },
+  {
+    "revision": "33d6bbef0946f7071752c239b14d4a67",
+    "url": "/static/media/bg-card-front.33d6bbef.png"
   },
   {
     "revision": "3b8e5db1428efb79aa0006dfbef1d690",
