@@ -60,7 +60,64 @@
 }
 
 .cardNumber {
+  color: var(--white);
   display: flex;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.dot {
+  height: 37px;
+  width: 37px;
+  background-color: var(--white);
+  border-radius: 50%;
+  display: block;
+}
+
+.circleOutline {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid var(--white);
+}
+
+.frontCardContainer {
+  padding: 1.25rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.upperLine {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.lowerLine {
+  display: flex;
+  justify-content: space-between;
+  color: var(--white);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.backCardContainer {
+  position: relative;
+}
+
+.backCardContainer p {
+  color: var(--white);
+  letter-spacing: 2px;
+  font-size: 12px;
+
+  position: absolute;
+  right: 30px;
+  top: 59px;
 }
 
 @media only screen and (min-width: 640px) {
@@ -72,6 +129,16 @@
   .cardFront {
     width: 305px;
     height: 167px;
+  }
+
+  .cardNumber {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .backCardContainer p {
+    right: 40px;
+    top: 62px;
   }
 }
 
@@ -101,6 +168,15 @@
     width: 335px;
     height: 183px;
   }
+
+  .lowerLine {
+    font-size: 12px;
+  }
+
+  .backCardContainer p {
+    right: 45px;
+    top: 70px;
+  }
 }
 
 @media only screen and (min-width: 1280px) {
@@ -129,14 +205,13 @@
     width: 408px;
     height: 223px;
   }
-}
 
-.frontCardContainer {
-  padding: 1rem;
-  width: 100%;
-}
+  .cardNumber {
+    font-size: 28px;
+  }
 
-.lowerLine {
-  display: flex;
-  justify-content: space-between;
+  .backCardContainer p {
+    right: 51px;
+    top: 89px;
+  }
 }

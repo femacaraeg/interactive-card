@@ -3,30 +3,35 @@ import React from 'react';
 import styles from './Header.module.css';
 
 function Header(props) {
-  const { name, number, expMonth, expYear } = props;
+  const { name, number, expMonth, expYear, cvc } = props;
 
-  console.log('array number', Array.from(expMonth), number);
   return (
     <div className={styles.container}>
       <div className={styles.cardContainer}>
         <div className={styles.innerCardContainer}>
-          <div className={styles.cardBack} />
+          {/* Credit Card - Back */}
+          <div className={styles.cardBack}>
+            <div className={styles.backCardContainer}>
+              <p>{cvc ? cvc : '000'}</p>
+            </div>
+          </div>
           {/* Credit Card - Front */}
           <div className={styles.cardFront}>
             <div className={styles.frontCardContainer}>
-              <div className={styles.cardNumber}>
-                {number ? number : '0000 0000 000 000'}
+              <div className={styles.upperLine}>
+                <span className={styles.dot} />
+                <span className={styles.circleOutline} />
               </div>
               <div>
-                {Array.from(expMonth).map((val, index) => {
-                  return <p key={index}>{val ? val : '0'}</p>;
-                })}
-              </div>
-              <div className={styles.lowerLine}>
-                <p>{name ? name.toUpperCase() : 'JANE APPLESEED'}</p>
-                <p>{`${expMonth ? expMonth : '00'}/${
-                  expYear ? expYear : '00'
-                }`}</p>
+                <div className={styles.cardNumber}>
+                  {number ? number : '0000 0000 0000 0000'}
+                </div>
+                <div className={styles.lowerLine}>
+                  <p>{name ? name.toUpperCase() : 'JANE APPLESEED'}</p>
+                  <p>{`${expMonth ? expMonth : '00'}/${
+                    expYear ? expYear : '00'
+                  }`}</p>
+                </div>
               </div>
             </div>
           </div>

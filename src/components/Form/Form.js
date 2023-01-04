@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import valid from 'card-validator';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import ReactInputMask from 'react-input-mask';
 import successIcon from '../../assets/icon-complete.svg';
 
 import styles from './Form.module.css';
@@ -31,7 +32,7 @@ const CardSchema = Yup.object({
     )
     .required(`Can't be blank`),
   cvc: Yup.string()
-    .test('test-cvv', 'css is invalid', (value) => valid.cvv(value).isValid)
+    .test('test-cvv', 'cvc is invalid', (value) => valid.cvv(value).isValid)
     .required(`Can't be blank`),
 });
 
@@ -83,20 +84,23 @@ function Form(props) {
             onChange={formik.handleChange}
             value={formik.values.name}
             onBlur={formik.handleBlur}
+            maxLength={25}
           />
           {formik.errors.name && formik.touched.name ? (
             <p className={styles.error}>{formik.errors.name}</p>
           ) : null}
           <label>
             CARD NUMBER
-            <input
+            <ReactInputMask
+              mask='9999 9999 9999 9999'
               type='text'
               name='number'
               placeholder='e.g. 1234 5678 9123 0000'
+              maskChar='0'
               onChange={formik.handleChange}
               value={formik.values.number}
               onBlur={formik.handleBlur}
-            />
+            ></ReactInputMask>
           </label>
           {formik.errors.number && formik.touched.number ? (
             <p className={styles.error}>{formik.errors.number}</p>
@@ -107,25 +111,29 @@ function Form(props) {
               EXP. DATE (MM/YY)
               <div className={styles.flexDiv}>
                 <div>
-                  <input
-                    type='number'
+                  <ReactInputMask
+                    mask='99'
+                    maskChar='0'
+                    type='text'
                     placeholder='MM'
                     name='month'
                     onChange={formik.handleChange}
                     value={formik.values.month}
-                  />
+                  ></ReactInputMask>
                   {formik.errors.month && touched.month ? (
                     <p className={styles.error}>{errors.month}</p>
                   ) : null}
                 </div>
                 <div>
-                  <input
-                    type='number'
+                  <ReactInputMask
+                    mask='99'
+                    maskChar='0'
+                    type='text'
                     placeholder='YY'
                     name='year'
                     onChange={formik.handleChange}
                     value={formik.values.year}
-                  />
+                  ></ReactInputMask>
                   {errors.year && touched.year ? (
                     <p className={styles.error}>{errors.year}</p>
                   ) : null}
@@ -135,13 +143,16 @@ function Form(props) {
             <label>
               CVC
               <div>
-                <input
-                  type='number'
+                <ReactInputMask
+                  mask='999'
+                  maskChar='0'
+                  type='text'
                   placeholder='e.g. 123'
                   name='cvc'
                   onChange={formik.handleChange}
                   value={formik.values.cvc}
-                />
+                  onBlur={formik.handleBlur}
+                ></ReactInputMask>
                 {errors.cvc && touched.cvc ? (
                   <p className={styles.error}>{errors.cvc}</p>
                 ) : null}
