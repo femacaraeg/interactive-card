@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import valid from 'card-validator';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import ReactInputMask from 'react-input-mask';
+import ReactInputMask from 'comigo-tech-react-input-mask';
 import successIcon from '../../assets/icon-complete.svg';
 
 import styles from './Form.module.css';
@@ -96,7 +96,7 @@ function Form(props) {
               type='text'
               name='number'
               placeholder='e.g. 1234 5678 9123 0000'
-              maskChar='0'
+              maskPlaceholder='0'
               onChange={formik.handleChange}
               value={formik.values.number}
               onBlur={formik.handleBlur}
@@ -113,7 +113,7 @@ function Form(props) {
                 <div>
                   <ReactInputMask
                     mask='99'
-                    maskChar='0'
+                    maskPlaceholder='0'
                     type='text'
                     placeholder='MM'
                     name='month'
@@ -127,7 +127,7 @@ function Form(props) {
                 <div>
                   <ReactInputMask
                     mask='99'
-                    maskChar='0'
+                    maskPlaceholder='0'
                     type='text'
                     placeholder='YY'
                     name='year'
@@ -145,7 +145,7 @@ function Form(props) {
               <div>
                 <ReactInputMask
                   mask='999'
-                  maskChar='0'
+                  maskPlaceholder='0'
                   type='text'
                   placeholder='e.g. 123'
                   name='cvc'
