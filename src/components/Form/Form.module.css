@@ -51,11 +51,16 @@
 
 .date label {
   flex: 1;
+  margin-bottom: 0;
 }
 
 .flexDiv {
   display: flex;
   gap: 1rem;
+}
+
+.flexDiv input {
+  /* margin: 0; */
 }
 
 .confirmBtn {

@@ -107,8 +107,8 @@ function Form(props) {
           ) : null}
 
           <div className={styles.date}>
-            <label>
-              EXP. DATE (MM/YY)
+            <div>
+              <label>EXP. DATE (MM/YY)</label>
               <div className={styles.flexDiv}>
                 <div>
                   <ReactInputMask
@@ -119,7 +119,7 @@ function Form(props) {
                     name='month'
                     onChange={formik.handleChange}
                     value={formik.values.month}
-                  ></ReactInputMask>
+                  />
                   {formik.errors.month && touched.month ? (
                     <p className={styles.error}>{errors.month}</p>
                   ) : null}
@@ -133,31 +133,34 @@ function Form(props) {
                     name='year'
                     onChange={formik.handleChange}
                     value={formik.values.year}
-                  ></ReactInputMask>
+                  />
                   {errors.year && touched.year ? (
                     <p className={styles.error}>{errors.year}</p>
                   ) : null}
                 </div>
               </div>
-            </label>
-            <label>
-              CVC
-              <div>
-                <ReactInputMask
-                  mask='999'
-                  maskPlaceholder='0'
-                  type='text'
-                  placeholder='e.g. 123'
-                  name='cvc'
-                  onChange={formik.handleChange}
-                  value={formik.values.cvc}
-                  onBlur={formik.handleBlur}
-                ></ReactInputMask>
-                {errors.cvc && touched.cvc ? (
-                  <p className={styles.error}>{errors.cvc}</p>
-                ) : null}
-              </div>
-            </label>
+              {/* <div className={styles.flexDiv}>
+
+
+
+              </div> */}
+            </div>
+            <div>
+              <label>CVC</label>
+              <ReactInputMask
+                mask='999'
+                maskPlaceholder='0'
+                type='text'
+                placeholder='e.g. 123'
+                name='cvc'
+                onChange={formik.handleChange}
+                value={formik.values.cvc}
+                onBlur={formik.handleBlur}
+              ></ReactInputMask>
+              {errors.cvc && touched.cvc ? (
+                <p className={styles.error}>{errors.cvc}</p>
+              ) : null}
+            </div>
           </div>
           <button type='submit' className={styles.confirmBtn}>
             Confirm

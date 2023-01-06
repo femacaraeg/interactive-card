@@ -21,18 +21,20 @@ function App() {
   };
 
   return (
-    <div className='App'>
-      <Header
-        name={name}
-        number={cardNumber}
-        expMonth={expMonth}
-        expYear={expYear}
-        cvc={cvc}
-      />
-      <div className='Form'>
-        <Form onFormChange={handleFormChange} />
+    <main role='main'>
+      <div id='root' className='App'>
+        <Header
+          name={name}
+          number={cardNumber}
+          expMonth={expMonth}
+          expYear={expYear}
+          cvc={cvc}
+        />
+        <div className='Form'>
+          <Form onFormChange={handleFormChange} />
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 
