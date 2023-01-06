@@ -21,8 +21,8 @@ function App() {
   };
 
   return (
-    <main role='main'>
-      <div id='root' className='App'>
+    <main>
+      <div className='App'>
         <Header
           name={name}
           number={cardNumber}
